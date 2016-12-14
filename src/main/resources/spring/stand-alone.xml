@@ -10,7 +10,7 @@
 
     <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
 
-    <bean class="com.gy.thread.StartThread" init-method="run"></bean>
+    <!--<bean class="com.gy.thread.StartThread" init-method="run"></bean>-->
 
 
 </beans>
