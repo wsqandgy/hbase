@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gy.model.mapper.manual.ManualMapper" >
+
+  <select id="selectOperationList" parameterType="java.util.HashMap"
+          resultMap="com.gy.model.mapper.TbOrderOperatorMapper.BaseResultMap">
+
+    select * from tb_order_operator order by id asc limit #{start},200;
+
+  </select>
+
+  <select id="countOperationNum" resultType="int">
+
+    select count(*) from tb_order_operator;
+
+  </select>
+
+</mapper>

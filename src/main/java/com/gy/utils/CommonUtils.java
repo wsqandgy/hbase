@@ -1,6 +1,7 @@
 package com.gy.utils;
 
 import com.gy.model.OrderOperatorBean;
+import com.gy.model.pojo.TbOrderOperator;
 
 import java.util.Map;
 import java.util.NavigableMap;
@@ -55,4 +56,27 @@ public class CommonUtils {
         return orderOperatorBean;
     }
 
+    /**
+     * 数据库的订单操作对象记录转换为Hbase的操作记录
+     *
+     * 参数
+     *    数据库中订单操作记录
+     *
+     * @return 转换完成的Hbase订单操作记录
+     */
+    public static OrderOperatorBean parseDB2Hbase(TbOrderOperator tbOrderOperator) {
+
+        OrderOperatorBean orderOperatorBean = new OrderOperatorBean();
+        orderOperatorBean.setOrderTableName(tbOrderOperator.getOrderTableName());
+        orderOperatorBean.setCreateTime(DateUtils.dateTime2StringWithss(tbOrderOperator.getCreateTime()));
+        orderOperatorBean.setSellerId(tbOrderOperator.getSellerId() + "");
+        orderOperatorBean.setUserId(tbOrderOperator.getUserId() + "");
+        orderOperatorBean.setOptType(tbOrderOperator.getOptType());
+        orderOperatorBean.setOptContent(tbOrderOperator.getOptContent());
+        orderOperatorBean.setOptTime(DateUtils.dateTime2StringWithss(tbOrderOperator.getOptTime()));
+        orderOperatorBean.setOrderId(tbOrderOperator.getOrderId());
+        orderOperatorBean.setOrderState(tbOrderOperator.getOrderState() + "");
+
+        return orderOperatorBean;
+    }
 }
